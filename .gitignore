@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+env/
+.venv/
+.env
+
+# Arduino / ESP32-specific
+.pio/
+bin/
+*.elf
+*.bin
+*.hex
+
+# Large AI models
+*.pt
+!VISORA/yolov8x.pt
+*.weights
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
