@@ -1,0 +1,1 @@
+# Gesture Link\n\n## Components List (Draft)\n- ESP32-S3 Sense (Visora)\n- ESP32-C6 (Glove A)\n- ESP32 Dev Module (Glove B)\n
