@@ -1,0 +1,1 @@
+# Setup Guide\n\nPlatformIO installation and basic configuration.\n
