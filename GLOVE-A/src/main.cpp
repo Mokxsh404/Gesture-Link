@@ -1,4 +1,4 @@
-// Glove A main code - ESP32-C6 (v1: Initial Flex Read & DFPlayer)
+// Glove A main code - ESP32-C6 (v2: Calibration added)
 #include <Arduino.h>
 #include <HardwareSerial.h>
 #include <DFRobotDFPlayerMini.h>
@@ -14,6 +14,15 @@
 HardwareSerial dfPlayerSerial(1);
 DFRobotDFPlayerMini dfPlayer;
 
+int flexMin[4] = {1000, 1000, 1000, 1000};
+int flexMax[4] = {3500, 3500, 3500, 3500};
+
+int readFlexNormalized(int pin, int idx) {
+  int raw = analogRead(pin);
+  int pct = map(raw, flexMin[idx], flexMax[idx], 0, 100);
+  return constrain(pct, 0, 100);
+}
+
 void setup() {
   Serial.begin(115200);
   dfPlayerSerial.begin(9600, SERIAL_8N1, DFPLAYER_RX, DFPLAYER_TX);
@@ -23,25 +32,28 @@ void setup() {
   pinMode(FLEX3_PIN, INPUT);
   pinMode(FLEX4_PIN, INPUT);
   
-  delay(1000);
-  if (dfPlayer.begin(dfPlayerSerial, false, true)) {
-    dfPlayer.volume(30);
-    Serial.println("DFPlayer ready!");
-  } else {
-    Serial.println("DFPlayer failed!");
+  // Basic calibration routine
+  Serial.println("Keep hand flat for calibration...");
+  delay(2000);
+  for(int i=0; i<4; i++) {
+    flexMin[0] = analogRead(FLEX1_PIN);
+    flexMin[1] = analogRead(FLEX2_PIN);
+    flexMin[2] = analogRead(FLEX3_PIN);
+    flexMin[3] = analogRead(FLEX4_PIN);
   }
+  Serial.println("Calibration done!");
 }
 
 void loop() {
-  int f1 = analogRead(FLEX1_PIN);
-  int f2 = analogRead(FLEX2_PIN);
-  int f3 = analogRead(FLEX3_PIN);
-  int f4 = analogRead(FLEX4_PIN);
+  int f1 = readFlexNormalized(FLEX1_PIN, 0);
+  int f2 = readFlexNormalized(FLEX2_PIN, 1);
+  int f3 = readFlexNormalized(FLEX3_PIN, 2);
+  int f4 = readFlexNormalized(FLEX4_PIN, 3);
   
-  Serial.printf("Flex raw: %d, %d, %d, %d\n", f1, f2, f3, f4);
+  Serial.printf("Flex percents: %d%%, %d%%, %d%%, %d%%\n", f1, f2, f3, f4);
   
-  if (f1 > 3000) {
-    dfPlayer.play(1); // Play sound on finger bend
+  if (f1 > 80) {
+    dfPlayer.play(1);
     delay(2000);
   }
   delay(100);
