@@ -1,50 +1,56 @@
-// Glove A main code - ESP32-C6 (v3: IMU Integration)
+// Glove A main code - ESP32-C6 (v4: OLED & State Machine)
 #include <Arduino.h>
 #include <Wire.h>
 #include <HardwareSerial.h>
 #include <DFRobotDFPlayerMini.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SH110X.h>
 
 #define FLEX1_PIN 6
 #define FLEX2_PIN 0
 #define FLEX3_PIN 1
 #define FLEX4_PIN 2
 
-#define IMU_SDA 21
-#define IMU_SCL 22
+#define OLED_RESET -1
+Adafruit_SH1106G display = Adafruit_SH1106G(128, 64, &Wire, OLED_RESET);
 
 HardwareSerial dfPlayerSerial(1);
 DFRobotDFPlayerMini dfPlayer;
 
-int flexMin[4] = {1000, 1000, 1000, 1000};
-int flexMax[4] = {3500, 3500, 3500, 3500};
-
-int readFlexNormalized(int pin, int idx) {
-  int raw = analogRead(pin);
-  int pct = map(raw, flexMin[idx], flexMax[idx], 0, 100);
-  return constrain(pct, 0, 100);
-}
+int flexValues[4] = {0,0,0,0};
+String currentGesture = "IDLE";
 
 void setup() {
   Serial.begin(115200);
-  Wire.begin(IMU_SDA, IMU_SCL);
-  dfPlayerSerial.begin(9600, SERIAL_8N1, DFPLAYER_RX, DFPLAYER_TX);
+  Wire.begin(21, 22);
   
-  pinMode(FLEX1_PIN, INPUT);
-  pinMode(FLEX2_PIN, INPUT);
-  pinMode(FLEX3_PIN, INPUT);
-  pinMode(FLEX4_PIN, INPUT);
+  display.begin(0x3C, true);
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(10, 10);
+  display.print("Glove A Init...");
+  display.display();
+  
+  dfPlayerSerial.begin(9600, SERIAL_8N1, 16, 17);
 }
 
 void loop() {
-  int f1 = readFlexNormalized(FLEX1_PIN, 0);
-  int f2 = readFlexNormalized(FLEX2_PIN, 1);
-  int f3 = readFlexNormalized(FLEX3_PIN, 2);
-  int f4 = readFlexNormalized(FLEX4_PIN, 3);
+  flexValues[0] = analogRead(FLEX1_PIN);
   
-  // Dummy reading from MPU6050
-  float pitch = 0.0;
-  float roll = 0.0;
+  display.clearDisplay();
+  display.setCursor(10, 10);
+  display.printf("F1: %d", flexValues[0]);
+  display.setCursor(10, 30);
+  display.print("Gesture: " + currentGesture);
+  display.display();
   
-  Serial.printf("Flex: %d%%, IMU Pitch: %.1f, Roll: %.1f\n", f1, pitch, roll);
+  if (flexValues[0] > 3000) {
+    currentGesture = "HELLO";
+    dfPlayer.play(11);
+    delay(2000);
+  } else {
+    currentGesture = "IDLE";
+  }
   delay(100);
 }
