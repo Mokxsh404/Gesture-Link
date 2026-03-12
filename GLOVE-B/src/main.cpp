@@ -1,0 +1,22 @@
+// Glove B main code - ESP32 (v1: Solenoid Pins Setup)
+#include <Arduino.h>
+
+const int braillePins[12] = {
+    23, 27, 26, 4,  16, 2, 
+    -1, 19, 5,  33, 25, -1 
+};
+
+void setup() {
+  Serial.begin(115200);
+  for (int i = 0; i < 12; i++) {
+    if (braillePins[i] != -1) {
+      pinMode(braillePins[i], OUTPUT);
+      digitalWrite(braillePins[i], LOW);
+    }
+  }
+  Serial.println("Solenoid pins configured.");
+}
+
+void loop() {
+  delay(1000);
+}
