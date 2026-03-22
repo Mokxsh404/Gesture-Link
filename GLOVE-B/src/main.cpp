@@ -1,4 +1,4 @@
-// Glove B main code - ESP32 (v1: Solenoid Pins Setup)
+// Glove B main code - ESP32 (v2: Vibration Motor Sequencer)
 #include <Arduino.h>
 
 const int braillePins[12] = {
@@ -14,9 +14,16 @@ void setup() {
       digitalWrite(braillePins[i], LOW);
     }
   }
-  Serial.println("Solenoid pins configured.");
 }
 
 void loop() {
-  delay(1000);
+  for (int i = 0; i < 12; i++) {
+    if (braillePins[i] != -1) {
+      digitalWrite(braillePins[i], HIGH);
+      delay(200);
+      digitalWrite(braillePins[i], LOW);
+      delay(100);
+    }
+  }
+  delay(2000);
 }
