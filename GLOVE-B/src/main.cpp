@@ -1,4 +1,4 @@
-// Glove B main code - ESP32 (v5: I2S Microphone Setup)
+// Glove B main code - ESP32 (v6: I2S DMA Buffer Tuning)
 #include <Arduino.h>
 #include <driver/i2s.h>
 
@@ -15,8 +15,8 @@ void i2s_install() {
       .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
       .communication_format = I2S_COMM_FORMAT_STAND_I2S,
       .intr_alloc_flags = 0,
-      .dma_buf_count = 4,
-      .dma_buf_len = 128,
+      .dma_buf_count = 8, // Tuned buffer count
+      .dma_buf_len = 512,  // Tuned buffer length
       .use_apll = false
   };
   i2s_driver_install(I2S_PORT, &i2s_config, 0, NULL);
@@ -37,15 +37,12 @@ void setup() {
   i2s_install();
   i2s_setpin();
   i2s_start(I2S_PORT);
-  Serial.println("I2S Mic initialized.");
+  Serial.println("I2S Mic tuned buffer ready.");
 }
 
 void loop() {
-  int16_t buffer[128];
+  int16_t buffer[512];
   size_t bytes_read;
   i2s_read(I2S_PORT, &buffer, sizeof(buffer), &bytes_read, portMAX_DELAY);
-  if (bytes_read > 0) {
-    Serial.printf("Captured %d bytes of audio data\n", bytes_read);
-  }
   delay(10);
 }
