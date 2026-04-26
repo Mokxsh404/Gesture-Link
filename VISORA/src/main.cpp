@@ -1,30 +1,22 @@
-// Visora main code - ESP32-S3 Sense (v1: Camera Server Test)
+// Visora main code - ESP32-S3 Sense (v2: YOLO TCP Client)
 #include <Arduino.h>
 #include <WiFi.h>
-#include "esp_camera.h"
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7735.h>
 
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
-
-void startCameraServer();
+Adafruit_ST7735 tft(1, 2, 6, 5, 3); // CS, DC, MOSI, SCLK, RST
+WiFiClient client;
 
 void setup() {
   Serial.begin(115200);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-  }
-  Serial.println("Camera server starting...");
-  startCameraServer();
-  Serial.print("IP: ");
-  Serial.println(WiFi.localIP());
+  tft.initR(INITR_BLACKTAB);
+  tft.fillScreen(ST77XX_BLACK);
+  tft.setCursor(10, 10);
+  tft.setTextColor(ST77XX_WHITE);
+  tft.print("Object detection init");
 }
 
 void loop() {
-  delay(1000);
-}
-
-// Dummy/basic implementation of server start
-void startCameraServer() {
-  Serial.println("MJPEG Camera server running on port 80");
+  // Connect and read detections
+  delay(100);
 }
