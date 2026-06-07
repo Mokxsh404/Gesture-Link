@@ -1,0 +1,7 @@
+numpy
+opencv-python
+torch
+ultralytics
+faster-whisper
+gTTS
+googletrans==4.0.0-rc1
