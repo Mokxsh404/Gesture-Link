@@ -1,16 +1,872 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Gesture Link — Wearable Communication System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture Link — Wearable Communication System for Differently Abled</title>
+  <meta name="description"
+    content="Gesture Link combines smart glasses and assistive gloves to enable two-way communication between visually impaired and speech-impaired individuals. Fully offline, real-time, wearable.">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <nav>Gesture Link</nav>
-  <section id="hero"><h1>Communication without barriers</h1></section>
-  <section id="about"><h2>About</h2></section>
-  <section id="modules"><h2>Modules</h2></section>
-  <section id="demos"><h2>Demos</h2></section>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo"><span class="nav-logo-dot"></span> Gesture Link</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#demos">Demos</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#circuits">Circuits</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="https://github.com/Mokxsh404/Gesture-Link" target="_blank" class="nav-cta">GitHub</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient-orb orb-1"></div>
+      <div class="hero-gradient-orb orb-2"></div>
+      <div class="hero-gradient-orb orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+
+        <h1 class="hero-title">Communication<br>without <span class="gradient-text">barriers.</span></h1>
+        <p class="hero-description">A wearable system that connects visually impaired and speech-impaired individuals
+          through gesture, speech, and touch — running entirely offline.</p>
+        <div class="hero-actions">
+          <a href="#demos" class="btn-primary">See how it works</a>
+          <a href="https://github.com/Mokxsh404/Gesture-Link" target="_blank" class="btn-secondary">View source</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-device">
+          <div class="hero-ring hero-ring-1"></div>
+          <div class="hero-ring hero-ring-2"></div>
+          <div class="hero-ring hero-ring-3"></div>
+          <div class="hero-center-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" />
+              <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" />
+              <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" />
+              <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-4.4 0-7.3-2.7-10-5l1.3-1.3a2.1 2.1 0 0 1 3-.3L6 16" />
+            </svg>
+          </div>
+          <div class="hero-float-label label-visora">Visora — Smart Glasses</div>
+          <div class="hero-float-label label-glove-a">Glove A — Gesture to Speech</div>
+          <div class="hero-float-label label-glove-b">Glove B — Speech to Braille</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-wrapper">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-number" data-target="2.2" data-suffix="B">0</div>
+            <div class="stat-label">People with vision impairment</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-number" data-target="1.5" data-suffix="B">0</div>
+            <div class="stat-label">People with hearing impairment</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-number" data-target="430" data-suffix="M">0</div>
+            <div class="stat-label">With speech difficulties</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-number" data-target="3" data-suffix="">0</div>
+            <div class="stat-label">Integrated modules</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-4">
+            <div class="stat-number" data-target="100" data-suffix="%">0</div>
+            <div class="stat-label">Offline operation</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-5">
+            <div class="stat-number" data-target="2" data-suffix="-way">0</div>
+            <div class="stat-label">Communication</div>
+          </div>
+        </div>
+        
+        <!-- Growth Graph -->
+        <div class="growth-graph-container reveal reveal-delay-2">
+          <div class="growth-graph-header">
+            <h3>Global Need for Assistive Technology</h3>
+            <p>Millions of people need accessible communication solutions</p>
+          </div>
+          <div class="growth-graph">
+            <svg viewBox="0 0 600 300" class="growth-chart" id="growthChart">
+              <defs>
+                <linearGradient id="areaGradientVision" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:rgba(56,189,248,0.3);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgba(56,189,248,0);stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="areaGradientHearing" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:rgba(249,115,22,0.25);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgba(249,115,22,0);stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="areaGradientSpeech" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:rgba(45,212,191,0.25);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgba(45,212,191,0);stop-opacity:1" />
+                </linearGradient>
+                <filter id="glowCyan"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <filter id="glowPurple"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <filter id="glowTeal"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <pattern id="grid" width="60" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 60 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              
+              <!-- Background Grid -->
+              <rect width="600" height="300" fill="url(#grid)" />
+              
+              <!-- Axes -->
+              <line x1="50" y1="50" x2="50" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+              <line x1="50" y1="280" x2="580" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+              
+              <!-- Y-axis labels -->
+              <text x="40" y="280" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="end">0</text>
+              <text x="40" y="210" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="end">1B</text>
+              <text x="40" y="140" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="end">2B</text>
+              <text x="40" y="70" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="end">3B</text>
+              
+              <!-- X-axis labels -->
+              <text x="60" y="295" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="middle">2019</text>
+              <text x="180" y="295" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="middle">2021</text>
+              <text x="300" y="295" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="middle">2023</text>
+              <text x="420" y="295" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="middle">2025</text>
+              <text x="560" y="295" font-size="10" fill="rgba(255,255,255,0.4)" text-anchor="middle">2026</text>
+
+              <!-- Area fills (hidden initially) -->
+              <polygon id="areaVision" fill="url(#areaGradientVision)" opacity="0" points="60,280 60,280"/>
+              <polygon id="areaHearing" fill="url(#areaGradientHearing)" opacity="0" points="60,280 60,280"/>
+              <polygon id="areaSpeech" fill="url(#areaGradientSpeech)" opacity="0" points="60,280 60,280"/>
+
+              <!-- Lines (hidden initially) -->
+              <polyline id="lineVision" fill="none" stroke="rgba(56,189,248,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="" filter="url(#glowCyan)"/>
+              <polyline id="lineHearing" fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="" filter="url(#glowPurple)"/>
+              <polyline id="lineSpeech" fill="none" stroke="rgba(45,212,191,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="" filter="url(#glowTeal)"/>
+
+              <!-- Data point groups (will be populated by JS) -->
+              <g id="dotsVision"></g>
+              <g id="dotsHearing"></g>
+              <g id="dotsSpeech"></g>
+
+              <!-- Tooltip (hidden initially) -->
+              <g id="chartTooltip" opacity="0">
+                <rect x="0" y="0" width="90" height="28" rx="6" fill="rgba(15,15,30,0.9)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <text id="tooltipText" x="45" y="18" text-anchor="middle" font-size="10" fill="#e8e8f0" font-family="JetBrains Mono, monospace"></text>
+              </g>
+              
+              <!-- Legend -->
+              <g class="chart-legend">
+                <circle cx="70" cy="25" r="4" fill="rgba(56,189,248,0.9)" />
+                <text x="80" y="30" font-size="11" fill="rgba(56,189,248,0.9)" font-weight="500">Vision Impairment</text>
+                <circle cx="270" cy="25" r="4" fill="rgba(249,115,22,0.9)" />
+                <text x="280" y="30" font-size="11" fill="rgba(249,115,22,0.9)" font-weight="500">Hearing Impairment</text>
+                <circle cx="470" cy="25" r="4" fill="rgba(45,212,191,0.9)" />
+                <text x="480" y="30" font-size="11" fill="rgba(45,212,191,0.9)" font-weight="500">Speech Difficulty</text>
+              </g>
+            </svg>
+          </div>
+          <div class="graph-caption">
+            Source: WHO Global Report on Vision & Hearing; World Health Organization
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="section-label">The Problem</span>
+          <h2 class="section-title">Millions struggle to<br>communicate <span class="gradient-text">daily.</span></h2>
+          <p class="section-subtitle">285 million people worldwide live with visual impairment. Millions more face
+            speech and hearing challenges. Existing assistive devices are often expensive, limited, or need constant
+            internet.</p>
+          <br>
+          <p class="section-subtitle">Gesture Link is built to work differently — it's wearable, offline, and enables
+            real-time two-way communication between users through gesture, speech, and tactile feedback.</p>
+        </div>
+        <div class="about-visual reveal reveal-delay-2">
+          <div class="about-diagram">
+            <div class="about-flow-item">
+              <div class="about-flow-icon icon-gesture">&#9995;</div>
+              <div class="about-flow-text">
+                <h4>Gesture Input</h4>
+                <p>Flex sensors detect finger bends and hand orientation</p>
+              </div>
+            </div>
+            <div class="about-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 5v14M5 12l7 7 7-7" />
+              </svg></div>
+            <div class="about-flow-item">
+              <div class="about-flow-icon icon-speech">&#128266;</div>
+              <div class="about-flow-text">
+                <h4>Speech Output</h4>
+                <p>Gestures are matched to pre-recorded audio phrases</p>
+              </div>
+            </div>
+            <div class="about-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 5v14M5 12l7 7 7-7" />
+              </svg></div>
+            <div class="about-flow-item">
+              <div class="about-flow-icon icon-braille">&#10239;</div>
+              <div class="about-flow-text">
+                <h4>Braille Vibration</h4>
+                <p>Speech is converted to tactile Braille patterns on the hand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="section" id="modules">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">System Modules</span>
+        <h2 class="section-title" style="margin:0 auto;">Three modules, <span class="gradient-text">one system.</span>
+        </h2>
+      </div>
+      <div class="modules-grid">
+        <div class="module-card card-visora reveal reveal-delay-1">
+          <div class="module-icon">&#128083;</div>
+          <h3>Visora</h3><span class="module-tag">ESP32-S3 Sense</span>
+          <p>AI-powered smart glasses that detect objects, recognize colours, and give audio feedback to visually
+            impaired users.</p>
+          <div class="module-specs">
+            <div class="module-spec"><span class="module-spec-dot"></span>Real-time object detection via camera</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>Colour recognition (OpenCV + webcolors)</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>I2S audio output through MAX98357A</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>1.8" TFT display for status and data</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>Heart rate and SpO2 monitoring</div>
+          </div>
+        </div>
+        <div class="module-card card-glove-a reveal reveal-delay-2">
+          <div class="module-icon">&#9995;</div>
+          <h3>Glove A</h3><span class="module-tag">ESP32-C6 &middot; Gesture to Speech</span>
+          <p>Converts hand gestures into spoken phrases using flex sensors and a 6-axis IMU. Audio plays through
+            DFPlayer Mini — no internet required.</p>
+          <div class="module-specs">
+            <div class="module-spec"><span class="module-spec-dot"></span>4 flex sensors for finger bend detection</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>6-axis IMU for hand orientation</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>Offline audio via DFPlayer Mini</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>OLED display with health graphs</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>Wi-Fi dashboard for remote data</div>
+          </div>
+        </div>
+        <div class="module-card card-glove-b reveal reveal-delay-3">
+          <div class="module-icon">&#129306;</div>
+          <h3>Glove B</h3><span class="module-tag">ESP32 Dev &middot; Speech to Braille</span>
+          <p>Captures speech through an I2S microphone and converts it to tactile Braille vibration patterns using 12
+            vibration motors.</p>
+          <div class="module-specs">
+            <div class="module-spec"><span class="module-spec-dot"></span>INMP441 microphone at 16kHz mono</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>12 vibration motors in Braille layout</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>6-dot Braille binary pattern mapping</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>Push-to-record button interface</div>
+            <div class="module-spec"><span class="module-spec-dot"></span>OLED with real-time Braille output</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DEMOS -->
+  <section class="section demos-section" id="demos">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Interactive Demos</span>
+        <h2 class="section-title" style="margin:0 auto;">See each module <span class="gradient-text">in action.</span>
+        </h2>
+        <p class="section-subtitle" style="margin:12px auto 0;">Click a tab below and hit play to watch an animated
+          walkthrough of how each module works.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="demo-tabs reveal reveal-delay-1">
+        <button class="demo-tab active" data-tab="glove-a">Glove A — Gesture</button>
+        <button class="demo-tab" data-tab="visora">Visora — Vision</button>
+        <button class="demo-tab" data-tab="glove-b">Glove B — Braille</button>
+      </div>
+
+      <!-- ========== GLOVE A PANEL ========== -->
+      <div class="demo-panel active" id="panel-glove-a">
+        <div class="demo-stage">
+          <div class="gesture-badge idle" id="gaBadge">Idle</div>
+          <div class="glove-a-demo">
+            <!-- SVG Hand -->
+            <div class="glove-hand-container">
+              <svg class="glove-hand-svg" viewBox="0 0 220 320" id="gloveHandSvg">
+                <!-- Palm -->
+                <rect x="50" y="140" width="120" height="140" rx="20" fill="rgba(139,92,246,0.08)"
+                  stroke="rgba(139,92,246,0.25)" stroke-width="1.5" />
+                <!-- Wrist -->
+                <rect x="65" y="270" width="90" height="50" rx="10" fill="rgba(139,92,246,0.05)"
+                  stroke="rgba(139,92,246,0.15)" stroke-width="1" />
+
+                <!-- Index finger -->
+                <g id="finger-index" class="finger-segment" style="transform-origin: 80px 140px;">
+                  <rect x="68" y="60" width="24" height="84" rx="12" fill="rgba(139,92,246,0.1)"
+                    stroke="rgba(139,92,246,0.3)" stroke-width="1.5" />
+                  <circle cx="80" cy="105" r="3" fill="rgba(236,72,153,0.6)" id="sensor-dot-index" />
+                </g>
+
+                <!-- Middle finger -->
+                <g id="finger-middle" class="finger-segment" style="transform-origin: 110px 140px;">
+                  <rect x="98" y="46" width="24" height="98" rx="12" fill="rgba(139,92,246,0.1)"
+                    stroke="rgba(139,92,246,0.3)" stroke-width="1.5" />
+                  <circle cx="110" cy="100" r="3" fill="rgba(236,72,153,0.6)" id="sensor-dot-middle" />
+                </g>
+
+                <!-- Ring finger -->
+                <g id="finger-ring" class="finger-segment" style="transform-origin: 140px 140px;">
+                  <rect x="128" y="56" width="24" height="88" rx="12" fill="rgba(139,92,246,0.1)"
+                    stroke="rgba(139,92,246,0.3)" stroke-width="1.5" />
+                  <circle cx="140" cy="105" r="3" fill="rgba(236,72,153,0.6)" id="sensor-dot-ring" />
+                </g>
+
+                <!-- Little finger -->
+                <g id="finger-little" class="finger-segment" style="transform-origin: 165px 155px;">
+                  <rect x="155" y="80" width="20" height="78" rx="10" fill="rgba(139,92,246,0.1)"
+                    stroke="rgba(139,92,246,0.3)" stroke-width="1.5" />
+                  <circle cx="165" cy="120" r="3" fill="rgba(236,72,153,0.6)" id="sensor-dot-little" />
+                </g>
+
+                <!-- Thumb -->
+                <g id="finger-thumb">
+                  <rect x="25" y="130" width="32" height="60" rx="14" fill="rgba(139,92,246,0.1)"
+                    stroke="rgba(139,92,246,0.3)" stroke-width="1.5" transform="rotate(-15, 41, 160)" />
+                </g>
+
+                <!-- IMU chip on back of hand -->
+                <rect x="90" y="180" width="40" height="25" rx="4" fill="rgba(236,72,153,0.08)"
+                  stroke="rgba(236,72,153,0.25)" stroke-width="1" id="imuChip" />
+                <text x="110" y="196" text-anchor="middle" font-size="7" fill="rgba(236,72,153,0.6)"
+                  font-family="JetBrains Mono, monospace">IMU</text>
+              </svg>
+            </div>
+
+            <!-- Sensor Data -->
+            <div class="glove-sensors">
+              <div class="sensor-row">
+                <span class="sensor-label">Index</span>
+                <div class="sensor-bar-track">
+                  <div class="sensor-bar-fill" id="bar-index"></div>
+                </div>
+                <span class="sensor-value" id="val-index">0</span>
+              </div>
+              <div class="sensor-row">
+                <span class="sensor-label">Middle</span>
+                <div class="sensor-bar-track">
+                  <div class="sensor-bar-fill" id="bar-middle"></div>
+                </div>
+                <span class="sensor-value" id="val-middle">0</span>
+              </div>
+              <div class="sensor-row">
+                <span class="sensor-label">Ring</span>
+                <div class="sensor-bar-track">
+                  <div class="sensor-bar-fill" id="bar-ring"></div>
+                </div>
+                <span class="sensor-value" id="val-ring">0</span>
+              </div>
+              <div class="sensor-row">
+                <span class="sensor-label">Little</span>
+                <div class="sensor-bar-track">
+                  <div class="sensor-bar-fill" id="bar-little"></div>
+                </div>
+                <span class="sensor-value" id="val-little">0</span>
+              </div>
+
+              <!-- IMU data -->
+              <div class="imu-display">
+                <span class="imu-label">IMU</span>
+                <div class="imu-values">
+                  <span class="imu-axis"><span>X:</span> <span class="imu-axis-val" id="imu-x">0.0</span></span>
+                  <span class="imu-axis"><span>Y:</span> <span class="imu-axis-val" id="imu-y">0.0</span></span>
+                  <span class="imu-axis"><span>Z:</span> <span class="imu-axis-val" id="imu-z">9.8</span></span>
+                </div>
+              </div>
+
+              <!-- Output -->
+              <div class="glove-output" id="gaOutput">
+                <div class="glove-output-icon">&#128266;</div>
+                <span class="glove-output-text" id="gaOutputText"></span>
+              </div>
+            </div>
+          </div>
+          <button class="demo-play-btn" id="gaPlayBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="width:18px;height:18px;stroke:var(--accent-purple);">
+              <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none" />
+            </svg>
+            Play Glove A demo
+          </button>
+        </div>
+      </div>
+
+      <!-- ========== VISORA PANEL ========== -->
+      <div class="demo-panel" id="panel-visora">
+        <div class="demo-stage">
+          <div class="visora-demo">
+            <div class="visora-viewport" id="visoraViewport">
+              <div class="visora-frame">
+                <div class="visora-frame-corner tl"></div>
+                <div class="visora-frame-corner tr"></div>
+                <div class="visora-frame-corner bl"></div>
+                <div class="visora-frame-corner br"></div>
+              </div>
+
+              <div class="visora-scene">
+                <div class="visora-object" id="vobj-1">
+                  <div class="visora-object-shape">
+                    <div class="visora-bbox" id="vbbox-1"></div>
+                    &#9749;
+                  </div>
+                  <span class="visora-label-tag" id="vlabel-1">Cup — 94%</span>
+                </div>
+                <div class="visora-object" id="vobj-2">
+                  <div class="visora-object-shape">
+                    <div class="visora-bbox" id="vbbox-2"></div>
+                    &#128273;
+                  </div>
+                  <span class="visora-label-tag" id="vlabel-2">Keys — 89%</span>
+                </div>
+                <div class="visora-object" id="vobj-3">
+                  <div class="visora-object-shape" style="color: #ff6b6b;">
+                    <div class="visora-bbox" id="vbbox-3"></div>
+                    &#11044;
+                  </div>
+                  <span class="visora-label-tag" id="vlabel-3"
+                    style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:var(--accent-pink);">Colour:
+                    Red</span>
+                </div>
+              </div>
+
+              <div class="visora-hud">
+                <div class="visora-hud-item" id="visoraMode">MODE: DETECT</div>
+                <div class="visora-hud-item" id="visoraFps">24 FPS</div>
+              </div>
+            </div>
+
+            <div class="visora-colour-section" id="visoraColours">
+              <div class="visora-colour-swatch" id="vswatch-1">
+                <div class="swatch-circle" style="background:#ff6b6b;"></div>
+                <div class="swatch-info"><span class="swatch-name">Red</span><span class="swatch-rgb">rgb(255, 107,
+                    107)</span></div>
+              </div>
+              <div class="visora-colour-swatch" id="vswatch-2">
+                <div class="swatch-circle" style="background:#4ecdc4;"></div>
+                <div class="swatch-info"><span class="swatch-name">Teal</span><span class="swatch-rgb">rgb(78, 205,
+                    196)</span></div>
+              </div>
+              <div class="visora-colour-swatch" id="vswatch-3">
+                <div class="swatch-circle" style="background:#ffe66d;"></div>
+                <div class="swatch-info"><span class="swatch-name">Yellow</span><span class="swatch-rgb">rgb(255, 230,
+                    109)</span></div>
+              </div>
+            </div>
+
+            <div class="visora-audio-wave" id="visoraWave">
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+            </div>
+          </div>
+          <button class="demo-play-btn" id="visoraPlayBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="width:18px;height:18px;stroke:var(--accent-cyan);">
+              <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none" />
+            </svg>
+            Play Visora demo
+          </button>
+        </div>
+      </div>
+
+      <!-- ========== GLOVE B PANEL ========== -->
+      <div class="demo-panel" id="panel-glove-b">
+        <div class="demo-stage">
+          <div class="glove-b-demo">
+            <div class="glove-b-flow">
+              <div class="mic-indicator">
+                <div class="mic-circle" id="gbMic">&#127908;</div>
+                <div class="mic-status" id="gbMicStatus">Tap to speak</div>
+              </div>
+              <div class="flow-arrow" id="gbArrow1">&#10140;</div>
+              <div class="recognized-text" id="gbTextBox">
+                <span class="recognized-text-placeholder" id="gbPlaceholder">Waiting for speech...</span>
+                <span class="recognized-text-content" id="gbTextContent"></span>
+              </div>
+              <div class="flow-arrow" id="gbArrow2">&#10140;</div>
+              <div class="mic-indicator">
+                <div class="mic-circle" id="gbMotorIcon" style="font-size:1.2rem;">&#10239;</div>
+                <div class="mic-status" id="gbMotorStatus">Braille output</div>
+              </div>
+            </div>
+
+            <div class="braille-output" id="gbBrailleOutput"></div>
+
+            <div class="motor-grid-container" id="gbMotorGrid">
+              <span class="motor-grid-label">12 Vibration Motors — 4 Fingers × 3 each</span>
+              <div class="motor-cells">
+                <!-- Braille Cell 1: Index + Middle finger -->
+                <div class="motor-cell" id="gb-motor-cell-1">
+                  <div class="motor-cell-grid">
+                    <div class="motor-dot" id="motor-0"></div>
+                    <div class="motor-dot" id="motor-3"></div>
+                    <div class="motor-dot" id="motor-1"></div>
+                    <div class="motor-dot" id="motor-4"></div>
+                    <div class="motor-dot" id="motor-2"></div>
+                    <div class="motor-dot" id="motor-5"></div>
+                  </div>
+                  <div class="motor-finger-labels"><span>Index</span><span>Middle</span></div>
+                </div>
+                <!-- Braille Cell 2: Ring + Little finger -->
+                <div class="motor-cell" id="gb-motor-cell-2">
+                  <div class="motor-cell-grid">
+                    <div class="motor-dot" id="motor-6"></div>
+                    <div class="motor-dot" id="motor-9"></div>
+                    <div class="motor-dot" id="motor-7"></div>
+                    <div class="motor-dot" id="motor-10"></div>
+                    <div class="motor-dot" id="motor-8"></div>
+                    <div class="motor-dot" id="motor-11"></div>
+                  </div>
+                  <div class="motor-finger-labels"><span>Ring</span><span>Little</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="demo-play-btn" id="gbPlayBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="width:18px;height:18px;stroke:var(--accent-teal);">
+              <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none" />
+            </svg>
+            Speak & convert to Braille
+          </button>
+          <div class="speech-note">
+            <span class="speech-note-icon">💡</span>
+            <div class="speech-note-text">
+              <strong>Web Speech API:</strong> If you get a "Network error" (especially on Brave Browser), make sure <em>"Use Google Services for speech recognition"</em> is enabled in your settings, or try standard Google Chrome / Safari.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Capabilities</span>
+        <h2 class="section-title" style="margin:0 auto;">Built for <span class="gradient-text">real use.</span></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item reveal">
+          <div class="feature-icon">&#128268;</div>
+          <h4>Fully Offline</h4>
+          <p>No internet, no cloud, no delays. Everything processes on-device for privacy and instant response.</p>
+        </div>
+        <div class="feature-item reveal reveal-delay-1">
+          <div class="feature-icon">&#128259;</div>
+          <h4>Two-Way Communication</h4>
+          <p>Gesture to speech and speech to Braille — connecting speech-impaired and visually impaired users both ways.
+          </p>
+        </div>
+        <div class="feature-item reveal reveal-delay-2">
+          <div class="feature-icon">&#127912;</div>
+          <h4>Colour Recognition</h4>
+          <p>Camera-based colour detection using OpenCV that maps RGB values to human-readable colour names in real
+            time.</p>
+        </div>
+        <div class="feature-item reveal reveal-delay-3">
+          <div class="feature-icon">&#129657;</div>
+          <h4>Health Monitoring</h4>
+          <p>Continuous heart rate and SpO2 tracking through the MAXREFDES117 bio-sensor across all modules.</p>
+        </div>
+        <div class="feature-item reveal reveal-delay-4">
+          <div class="feature-icon">&#127760;</div>
+          <h4>Multilingual</h4>
+          <p>Language selection interface supports multiple languages for broader accessibility and global reach.</p>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">&#128225;</div>
+          <h4>Remote Dashboard</h4>
+          <p>Glove A serves live sensor data as JSON over Wi-Fi, enabling remote health monitoring from any device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HARDWARE -->
+  <section class="section hardware-section" id="hardware">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Technical Specs</span>
+        <h2 class="section-title" style="margin:0 auto;">What's <span class="gradient-text">inside.</span></h2>
+      </div>
+      <div class="hardware-table-wrap reveal reveal-delay-1">
+        <table class="hardware-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Qty</th>
+              <th>Module</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ESP32-S3 Sense</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-visora">Visora</span></td>
+              <td>Main controller with camera</td>
+            </tr>
+            <tr>
+              <td>ESP32-C6</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-glove-a">Glove A</span></td>
+              <td>Gesture processing controller</td>
+            </tr>
+            <tr>
+              <td>ESP32 Dev Module</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-glove-b">Glove B</span></td>
+              <td>Speech and Braille controller</td>
+            </tr>
+            <tr>
+              <td>ST7735 TFT (1.8")</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-visora">Visora</span></td>
+              <td>Status and visual feedback display</td>
+            </tr>
+            <tr>
+              <td>OLED Displays</td>
+              <td>2</td>
+              <td><span class="hardware-module-tag tag-glove-a">Gloves</span></td>
+              <td>Health data and sensor readings</td>
+            </tr>
+            <tr>
+              <td>Flex Sensors</td>
+              <td>4</td>
+              <td><span class="hardware-module-tag tag-glove-a">Glove A</span></td>
+              <td>Finger bend detection</td>
+            </tr>
+            <tr>
+              <td>6-Axis IMU</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-glove-a">Glove A</span></td>
+              <td>Hand orientation tracking</td>
+            </tr>
+            <tr>
+              <td>INMP441 Microphone</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-glove-b">Glove B</span></td>
+              <td>I2S speech capture at 16kHz</td>
+            </tr>
+            <tr>
+              <td>Vibration Motors</td>
+              <td>12</td>
+              <td><span class="hardware-module-tag tag-glove-b">Glove B</span></td>
+              <td>Braille tactile output matrix</td>
+            </tr>
+            <tr>
+              <td>MAX98357A Amplifier</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-visora">Visora</span></td>
+              <td>I2S audio output</td>
+            </tr>
+            <tr>
+              <td>DFPlayer Mini</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-glove-a">Glove A</span></td>
+              <td>Offline MP3 audio playback</td>
+            </tr>
+            <tr>
+              <td>MAXREFDES117</td>
+              <td>1</td>
+              <td><span class="hardware-module-tag tag-all">All</span></td>
+              <td>Heart rate and SpO2 monitoring</td>
+            </tr>
+            <tr>
+              <td>DHT11 Sensor</td>
+              <td>2</td>
+              <td><span class="hardware-module-tag tag-all">All</span></td>
+              <td>Temperature and humidity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIRCUIT DIAGRAMS -->
+  <section class="section" id="circuits">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Circuit Design</span>
+        <h2 class="section-title" style="margin:0 auto;">Detailed schematics <span class="gradient-text">for each module.</span></h2>
+        <p class="section-subtitle" style="margin:12px auto 0;">Complete circuit diagrams showing component connections, pin assignments, and signal flow.</p>
+      </div>
+      <div class="circuits-grid">
+        <div class="circuit-card reveal reveal-delay-1">
+          <div class="circuit-card-header">
+            <span class="circuit-badge badge-visora">Visora</span>
+            <h3>Smart Glasses Circuit</h3>
+          </div>
+          <div class="circuit-image-container">
+            <img src="Circuit_Diagram/VISORA.webp" alt="VISORA circuit diagram" class="circuit-image">
+          </div>
+          <div class="circuit-info">
+            <p><strong>Main Controller:</strong> ESP32-S3 Sense</p>
+            <p><strong>Key Connections:</strong> Camera → Object detection, TFT display, I2S audio amplifier, DHT11 sensor, MAXREFDES117 bio-sensor</p>
+          </div>
+        </div>
+        <div class="circuit-card reveal reveal-delay-2">
+          <div class="circuit-card-header">
+            <span class="circuit-badge badge-glove-a">Glove A</span>
+            <h3>Gesture to Speech Circuit</h3>
+          </div>
+          <div class="circuit-image-container">
+            <img src="Circuit_Diagram/GLOVE-A.webp" alt="GLOVE-A circuit diagram" class="circuit-image">
+          </div>
+          <div class="circuit-info">
+            <p><strong>Main Controller:</strong> ESP32-C6 Xiao</p>
+            <p><strong>Key Connections:</strong> Flex sensors (4×), 6-axis IMU, DFPlayer Mini, OLED display, bio-sensor</p>
+          </div>
+        </div>
+        <div class="circuit-card reveal reveal-delay-3">
+          <div class="circuit-card-header">
+            <span class="circuit-badge badge-glove-b">Glove B</span>
+            <h3>Speech to Braille Circuit</h3>
+          </div>
+          <div class="circuit-image-container">
+            <img src="Circuit_Diagram/GLOVE-B.webp" alt="GLOVE-B circuit diagram" class="circuit-image">
+          </div>
+          <div class="circuit-info">
+            <p><strong>Main Controller:</strong> ESP32 Dev Module</p>
+            <p><strong>Key Connections:</strong> INMP441 microphone, 12 vibration motors (Braille matrix), OLED display, bio-sensor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE IMAGES -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Module Gallery</span>
+        <h2 class="section-title" style="margin:0 auto;">Visual overview of <span class="gradient-text">each device.</span></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal reveal-delay-1">
+          <div class="gallery-image-container">
+            <img src="Images/VISORA.webp" alt="VISORA smart glasses" class="gallery-image">
+          </div>
+          <div class="gallery-label">
+            <h3>Visora — Smart Glasses</h3>
+            <p>ESP32-S3 with onboard camera, TFT display, and audio output for real-time object detection and colour recognition.</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal reveal-delay-2">
+          <div class="gallery-image-container">
+            <img src="Images/GLOVE-A.webp" alt="GLOVE-A gesture glove" class="gallery-image">
+          </div>
+          <div class="gallery-label">
+            <h3>Glove A — Gesture to Speech</h3>
+            <p>Wearable glove with flex sensors and IMU that converts hand gestures into spoken audio phrases.</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal reveal-delay-3">
+          <div class="gallery-image-container">
+            <img src="Images/GLOVE-B.webp" alt="GLOVE-B braille glove" class="gallery-image">
+          </div>
+          <div class="gallery-label">
+            <h3>Glove B — Speech to Braille</h3>
+            <p>Tactile communication glove with 12 vibration motors arranged in a Braille cell pattern for haptic feedback.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS USED -->
+  <section class="section" id="components">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Bill of Materials</span>
+        <h2 class="section-title" style="margin:0 auto;">Complete component <span class="gradient-text">reference guide.</span></h2>
+      </div>
+      <div class="components-main reveal reveal-delay-1">
+        <img src="Components_Used/COMPONENTS.webp" alt="Bill of Materials - Components used" class="components-image">
+      </div>
+      <div class="components-summary">
+        <div class="component-stat reveal reveal-delay-2">
+          <div class="component-stat-number">3</div>
+          <div class="component-stat-label">Microcontroller Units</div>
+        </div>
+        <div class="component-stat reveal reveal-delay-3">
+          <div class="component-stat-number">15+</div>
+          <div class="component-stat-label">Individual Components</div>
+        </div>
+        <div class="component-stat reveal reveal-delay-4">
+          <div class="component-stat-number">100%</div>
+          <div class="component-stat-label">Open-Source Friendly</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="nav-logo"><span class="nav-logo-dot"></span> Gesture Link</div>
+          <p>&copy; 2026 Moksha Kumbhaj</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/Mokxsh404/Gesture-Link" target="_blank">GitHub</a>
+          <a href="#about">About</a>
+          <a href="#modules">Modules</a>
+          <a href="#demos">Demos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
+
 </html>
